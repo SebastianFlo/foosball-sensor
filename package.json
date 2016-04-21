@@ -1,0 +1,31 @@
+{
+  "name": "foosball-sensor",
+  "version": "1.0.0",
+  "description": "Scripts to read the sensors on a foosball table and create a server showing the score",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianFlo/foosball-sensor.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "python",
+    "raspberry",
+    "pi",
+    "foosball"
+  ],
+  "author": "Sebastian Florian <git@SebastianFlo, @SebFlorian>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SebastianFlo/foosball-sensor/issues"
+  },
+  "homepage": "https://github.com/SebastianFlo/foosball-sensor#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}
