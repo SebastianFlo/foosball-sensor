@@ -6,8 +6,10 @@ var spawn = require('child_process').spawn,
 we want to convert that received data into a string and append it to the overall dataString.*/
 py.stdout.on('data', function(data){
   var result = data.toString();
-  var triggeredSensor = result.split()[1];
-  console.log("Scored by team", triggeredSensor);
+  var triggeredSensor = result.split(':')[1];
+  if (triggeredSensor) {
+    console.log("Scored by team", triggeredSensor);
+  }
 });
 
 /*Once the stream is done (on 'end') we want to simply log the received data to the console.*/
