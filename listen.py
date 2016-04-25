@@ -3,15 +3,16 @@ import sys, json, time
 
 print("Starting Sensor")
  
-sensor = 4
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(sensor, GPIO.IN, GPIO.PUD_DOWN)
-
-previous_state = False
-current_state = False
 
 def listener() :
+
+    sensor = 4
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(sensor, GPIO.IN, GPIO.PUD_DOWN)
+
+    previous_state = False
+    current_state = False
 
     while True:
         time.sleep(0.1)
