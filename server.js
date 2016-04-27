@@ -5,10 +5,10 @@ var spawn = require('child_process').spawn,
     exec = require('child_process').exec,
     child;
 
-app.use(express.static(__dirname + '/public'));  
+app.use(express.static(__dirname + '/views'));  
 
 app.get('/', function(req, res,next) {  
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 var io = require('socket.io').listen(app.listen(port));
