@@ -8,7 +8,7 @@ var spawn = require('child_process').spawn,
 app.use(express.static(__dirname + '/public'));  
 
 app.get('/', function(req, res,next) {  
-    res.sendFile(__dirname + './public/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 var io = require('socket.io').listen(app.listen(port));
