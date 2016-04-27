@@ -25,7 +25,7 @@ io.sockets.on('connection', function (socket) {
 
 console.log("Listening on port " + port);
 
-child = spawn('node', ['start.js']);
+child = spawn('node', ['listen.js']);
 
 child.stdout.on('data', function (data) {
 	console.log('Child says: ' + data);

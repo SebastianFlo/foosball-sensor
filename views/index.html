@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=1">
     <title>Foosball</title>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <h1>Hello World</h1>
+	<div class="row">
+         <div id="bLogOut" class="small-3 columns small-offset-9 columns">
+    		<a class="small alert button" ng-click="doRestart()" >Restart</a>
+         </div>
+    </div>
+  
+ <div ng-view></div>    
+    
+    <div class="row">
+    	<div style="height:200px" ></div>
+        
+                <div class="large-4 columns">
+                <p>Connected to Server</p>
+                </div>
+                
+            	
+            <div style="height:100px" ></div>
+        </div>
+    </div>
+    
 </body>
 </html>
