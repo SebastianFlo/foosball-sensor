@@ -1,33 +1,75 @@
 <!DOCTYPE html>
-<html ng-app>
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=1">
-    <title>Foosball</title>
-	<script src="/bower_components/angular/angular.min.js"></script>
-	<script src="/socket.io/socket.io.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
 </head>
-<body>
-	<div class="row">
-         <div id="bLogOut" class="small-3 columns small-offset-9 columns">
-    		<a class="small alert button" ng-click="doRestart()" >Restart</a>
-         </div>
+<body ng-app="app" ng-cloak>
+
+ 
+    <md-content class="md-padding" >
+            <div layout="column" layout-gt-xs="row" >
+                <md-card flex flex-gt-xs="30">
+                    <h2>Card title #1</h2>
+                    <md-card-content>
+                        <p>Some content</p>
+                    </md-card-content>
+                </md-card>
+                <md-card flex >
+                    <h2>Card title #2</h2>
+                    <md-card-content>
+                        <p>Some content</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-content>
+
+    <div>
+    <p class="good" hide-gt-xs >Using <b>&lt;div layout="column" layout-gt-xs="row"&gt;</b> </p>
+    <p class="warn" hide show-gt-xs>
+        Using <b>&lt;div layout="column" layout-gt-xs="row"&gt;</b>
+        <br/>
+        <b>Wrong!</b>: Card #1 should be 30% width of the row!
+    </p>
     </div>
+
+    <md-content class="md-padding" >
+            <div layout="row"  layout-xs="column">
+                <md-card flex flex-gt-xs="30">
+                    <h2>Card title #1</h2>
+                    <md-card-content>
+                        <p>Some content</p>
+                    </md-card-content>
+                </md-card>
+                <md-card flex >
+                    <h2>Card title #2</h2>
+                    <md-card-content>
+                        <p>Some content</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </md-content>
+
+    <div>
+    <p class="good">Using <b>&lt;div layout='row' layout-xs="column" &gt;</b></p>
+    </div>
+    
+    </div>
+
   
- <div ng-view></div>    
-    
-    <div class="row">
-    	<div style="height:200px" ></div>
-        
-                <div class="large-4 columns">
-                <p>Connected to Server</p>
-                </div>
-                
-            	
-            <div style="height:100px" ></div>
-        </div>
-    </div>
-    
-	<script src="js/client.js"></script>
+  <script src="js/client.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+  
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">    
+    angular.module('app', ['ngMaterial']);
+  </script>
+  
 </body>
 </html>
