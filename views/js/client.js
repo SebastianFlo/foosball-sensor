@@ -13,8 +13,8 @@ function FoosBallController($scope) {
  
     socket.on('goal', function (data) {
         if(data) {
-            $scope.redScore++;
-            console.log("There is a problem:", data);
+            $scope.redScore = $scope.redScore++;
+            console.log("Score received: ", data);
         } else {
             console.log("There is a problem:", data);
         }
