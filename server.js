@@ -13,6 +13,7 @@ app.get('/', function(req, res,next) {
 
 var io = require('socket.io').listen(app.listen(port));
 
+child = spawn('node', ['listen.js']);
 
 io.sockets.on('connection', function (socket) {
     
@@ -29,4 +30,3 @@ io.sockets.on('connection', function (socket) {
 
 console.log("Listening on port " + port);
 
-child = spawn('node', ['listen.js']);
