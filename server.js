@@ -15,17 +15,21 @@ var io = require('socket.io').listen(app.listen(port));
 
 child = spawn('node', ['listen.js']);
 
-io.sockets.on('connection', function (socket) {
+// io.sockets.on('connection', function (socket) {
     
-    child.stdout.on('data', function (data) {
+//     child.stdout.on('data', function (data) {
+//         console.log('Child says: ' + data);
+//         io.sockets.emit('message', data);
+//     });
+    
+//     socket.on('doRestart', function (data) {
+// 	    console.log('Restarting...');
+//         io.sockets.emit('restart', { }); 
+//     });
+// });
+
+ child.stdout.on('data', function (data) {
         console.log('Child says: ' + data);
-        io.sockets.emit('message', data);
-    });
-    
-    socket.on('doRestart', function (data) {
-	console.log('Restarting...');
-        io.sockets.emit('restart', { }); 
-    });
 });
 
 console.log("Listening on port " + port);
