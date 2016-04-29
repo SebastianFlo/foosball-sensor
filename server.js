@@ -8,15 +8,19 @@ var spawn = require('child_process').spawn,
 app.use(express.static(__dirname + '/views'));  
 
 app.get('/', function(req, res,next) {  
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/views/index.html');  
 });
 
 var io = require('socket.io').listen(app.listen(port));
 
+
 io.sockets.on('connection', function (socket) {
-    socket.on('send', function (data) {
+    
+    child.stdout.on('data', function (data) {
+        console.log('Child says: ' + data);
         io.sockets.emit('message', data);
     });
+    
     socket.on('doRestart', function (data) {
 	console.log('Restarting...');
         io.sockets.emit('restart', { }); 
@@ -26,7 +30,3 @@ io.sockets.on('connection', function (socket) {
 console.log("Listening on port " + port);
 
 child = spawn('node', ['listen.js']);
-
-child.stdout.on('data', function (data) {
-	console.log('Child says: ' + data);
-});

@@ -1,7 +1,7 @@
 window.onload = function() {
  
     var messages = [];
-    var socket = io.connect('http://localhost:3700');
+    var socket = io.connect();
  
     socket.on('message', function (data) {
         if(data.message) {
