@@ -34,6 +34,7 @@ io.sockets.on('connection', function(socket)
     var triggeredSensor = result.split(':')[1];
     if (triggeredSensor) {
       console.log("Scored by team", triggeredSensor);
+        io.sockets.emit('goal', triggeredSensor);
     }
   });
   
