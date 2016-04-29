@@ -12,54 +12,20 @@
  
     <md-content class="md-padding" >
             <div layout="column" layout-gt-xs="row" >
-                <md-card flex flex-gt-xs="30">
-                    <h2>Card title #1</h2>
+                <md-card flex flex-gt-xs="50">
+                    <h2>Red Team</h2>
                     <md-card-content>
-                        <p>Some content</p>
+                        <p>{{ redScore }}</p>
                     </md-card-content>
                 </md-card>
                 <md-card flex >
-                    <h2>Card title #2</h2>
+                    <h2>White Team</h2>
                     <md-card-content>
-                        <p>Some content</p>
+                        <p>{{ whiteScore }}</p>
                     </md-card-content>
                 </md-card>
             </div>
-        </md-content>
-
-    <div>
-    <p class="good" hide-gt-xs >Using <b>&lt;div layout="column" layout-gt-xs="row"&gt;</b> </p>
-    <p class="warn" hide show-gt-xs>
-        Using <b>&lt;div layout="column" layout-gt-xs="row"&gt;</b>
-        <br/>
-        <b>Wrong!</b>: Card #1 should be 30% width of the row!
-    </p>
-    </div>
-
-    <md-content class="md-padding" >
-            <div layout="row"  layout-xs="column">
-                <md-card flex flex-gt-xs="30">
-                    <h2>Card title #1</h2>
-                    <md-card-content>
-                        <p>Some content</p>
-                    </md-card-content>
-                </md-card>
-                <md-card flex >
-                    <h2>Card title #2</h2>
-                    <md-card-content>
-                        <p>Some content</p>
-                    </md-card-content>
-                </md-card>
-            </div>
-        </md-content>
-
-    <div>
-    <p class="good">Using <b>&lt;div layout='row' layout-xs="column" &gt;</b></p>
-    </div>
-    
-    </div>
-
-  
+    </md-content>
 
   <!-- Angular Material Library -->
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
