@@ -25,8 +25,4 @@ function FoosBallController($scope) {
     $scope.redScore = 0;
     $scope.whiteScore = 0;
     
-    
-    
-    activate();
-
 }
