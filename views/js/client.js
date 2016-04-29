@@ -16,3 +16,5 @@ window.onload = function() {
         }
     });
 }
+
+angular.module('app', ['ngMaterial']);
