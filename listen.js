@@ -48,7 +48,9 @@ var server = net.createServer(function(connection) { //'connection' listener
 });
 
 server.listen(8124, function() { //'listening' listener
+
   console.log('server bound');
+  
   child = spawn('python', ['-u', 'listen.py']);
   
   child.stdout.on('data', function(data){
