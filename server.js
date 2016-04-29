@@ -28,8 +28,9 @@ child = spawn('node', ['listen.js']);
 //     });
 // });
 
- child.stdout.on('data', function (data) {
-        console.log('Child says: ' + data);
+child.stdout.on('data', function (data) {
+        var result = data.toString();
+        console.log('Child says: ' + result);
 });
 
 console.log("Listening on port " + port);
