@@ -14,6 +14,7 @@ function FoosBallController($scope) {
     socket.on('goal', function (data) {
         if(data) {
             $scope.redScore = $scope.redScore++;
+            $scope.data = data;
             console.log("Score received: ", data);
         } else {
             console.log("There is a problem:", data);
@@ -24,5 +25,6 @@ function FoosBallController($scope) {
 
     $scope.redScore = 0;
     $scope.whiteScore = 0;
+    $scope.data = '';
     
 }
