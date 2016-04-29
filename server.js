@@ -20,18 +20,30 @@ io.sockets.on('connection', function (socket) {
         io.sockets.emit('message', data);
     });
 
-//     socket.on('doRestart', function (data) {
-// 	    console.log('Restarting...');
-//         io.sockets.emit('restart', { }); 
-//     });
 });
 
-// child = spawn('node', ['listen.js']);
-
-// child.stdout.on('data', function (data) {
-//         var result = data.toString();
-//         console.log('Child says: ' + result);
-// });
-
 console.log("Listening on port " + port);
+
+child = spawn('python', ['-u', 'listen.py']);
+
+io.sockets.on('connection', function(socket)
+{
+    
+    child.stdout.on('data', function(data){
+    var result = data.toString();
+    var triggeredSensor = result.split(':')[1];
+    if (triggeredSensor) {
+      console.log("Scored by team", triggeredSensor);
+    }
+  });
+  
+    child.on('close', function(code) {
+      console.log('child process exited with code ' + code);
+  });
+  
+
+}); // end on connection
+
+
+
 
