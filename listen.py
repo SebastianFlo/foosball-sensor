@@ -18,7 +18,7 @@ def listener() :
         time.sleep(0.1)
         previous_state = current_state
         current_state = GPIO.input(sensor)
-        if current_state:
+        if not current_state:
             print("Team : %s" % (sensor)) 
         else: 
             print("Clear")
