@@ -19,6 +19,7 @@ function FoosBallController($scope) {
         } else {
             console.log("There is a problem:", data);
         }
+        $scope.$digest();
     });
 
     ////////////////
