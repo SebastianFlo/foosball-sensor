@@ -15,11 +15,11 @@ function FoosBallController($scope) {
         if(data) {
             $scope.redScore = $scope.redScore++;
             $scope.data = data;
+            $scope.$digest();
             console.log("Score received: ", data);
         } else {
             console.log("There is a problem:", data);
         }
-        $scope.$digest();
     });
 
     ////////////////
