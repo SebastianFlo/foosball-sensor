@@ -16,10 +16,10 @@ function FoosBallController($scope) {
             $scope.$apply(function() {
                 $scope.redScore = $scope.redScore + 1;
                 $scope.redSpeed = data.speed;
-                console.log("Team " + data.team + " scores with a speed of " + data.speed + "m/s");
+                console.log('Team ' + data.team + ' scores with a speed of ' + data.speed + 'm/s');
             })
         } else {
-            console.log("There is a problem:", data);
+            console.log('There is a problem:', data);
         }
     });
 
