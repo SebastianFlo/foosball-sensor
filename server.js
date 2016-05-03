@@ -13,15 +13,6 @@ app.get('/', function(req, res,next) {
 
 var io = require('socket.io').listen(app.listen(port));
 
-io.sockets.on('connection', function (socket) {
-    
-    socket.on('send', function (data) {
-        console.log('Child says: ' + data);
-        io.sockets.emit('message', data);
-    });
-
-});
-
 console.log("Listening on port " + port);
 
 child = spawn('python', ['-u', 'listen.py']);
@@ -33,7 +24,7 @@ io.sockets.on('connection', function(socket)
     var result = data.toString();
     var triggeredSensor = result.split(':')[0];
     var speed = result.split(':')[1];
-    if (triggeredSensor) {
+    if (speed) {
         var goal = {
             team: triggeredSensor,
             speed: speed
