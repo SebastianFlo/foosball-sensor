@@ -28,8 +28,8 @@ def listener() :
         if not previous_state and current_state:
             end = time.time()
             if start is not None:
-                duration = end - start
-                print("Team : %s : %s" % (sensor, duration)) 
+                duration = round(end - start, 3)
+                print("Team : %s : %s ms" % (sensor, duration)) 
 
 if __name__ =='__main__' :
     listener = listener()
