@@ -27,7 +27,7 @@ def listener() :
         # if sensor was triggered by not anymore
         if not previous_state and current_state:
             end = time.time()
-            if start is not None
+            if start is not None:
                 duration = end - start
                 print("Team : %s : %s" % (sensor, duration)) 
 
