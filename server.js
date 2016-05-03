@@ -23,9 +23,9 @@ io.sockets.on('connection', function(socket)
     var startTime, prevTime;
     child.stdout.on('data', function(data){
         startTime = Math.floor(Date.now() / 1000);
-        console.log('Start Time', startTime);
         // set debounce
         if (startTime - prevTime > 0.5) {
+            console.log('Start Time', startTime);
             var result = data.toString();
             var triggeredSensor = result.split(':')[0];
             var speed = result.split(':')[1];
