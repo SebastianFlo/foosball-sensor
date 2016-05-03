@@ -35,8 +35,6 @@ io.sockets.on('connection', function(socket)
                     speed: speed
                 }
                 io.sockets.emit('goal', goal);
-                // setting a data send debounce
-                console.log('Stop Time', stopTime);
             }
         }
         prevTime = startTime;
