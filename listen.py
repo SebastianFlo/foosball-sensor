@@ -15,13 +15,18 @@ def listener() :
     current_state = False
 
     while True:
-        time.sleep(0.1)
+        time.sleep(0.01)
         previous_state = current_state
         current_state = GPIO.input(sensor)
+        # if laser is triggered
         if not current_state:
-            print("Team : %s" % (sensor)) 
-        else: 
-            print("Clear")
+            # start timer
+            start = time.time()
+        # if was triggered by not anymore
+        if not previous_state and current_state 
+            end = time.time()
+            duration = end - start
+            print("Team : %s : %s" % (sensor, duration)) 
 
 if __name__ =='__main__' :
     listener = listener()
