@@ -11,16 +11,27 @@
     
     <md-content ng-controller="FoosBallController" class="md-padding" >
             <div layout="column" layout-gt-xs="row" >
-                <md-card flex>
+                <md-card flex style="background-color:#E8483C; color:white">
                     <h2>Red Team</h2>
                     <md-card-content>
-                        <p ng-bind="redScore"></p>
+                        <p style="font-size: 30em; text-align: center;" ng-bind="redScore"></p>
                     </md-card-content>
                 </md-card>
                 <md-card flex >
                     <h2>White Team</h2>
                     <md-card-content>
-                        <p ng-bind="whiteScore"></p>
+                        <p style="font-size: 30em; text-align: center;" ng-bind="whiteScore"></p>
+                    </md-card-content>
+                </md-card>
+            </div>
+    </md-content>
+
+    <md-content ng-controller="FoosBallController" class="md-padding" >
+            <div layout="column" layout-gt-xs="row" >
+                <md-card flex style="background-color:#E8483C; color:white">
+                    <h2>Speed</h2>
+                    <md-card-content>
+                        <p style="font-size: 10em; text-align: center;" ng-bind="redSpeed"></p>
                     </md-card-content>
                 </md-card>
             </div>

@@ -31,10 +31,15 @@ io.sockets.on('connection', function(socket)
     
     child.stdout.on('data', function(data){
     var result = data.toString();
-    var triggeredSensor = result.split(':')[1];
+    var triggeredSensor = result.split(':')[0];
+    var speed = result.split(':')[1];
     if (triggeredSensor) {
-      console.log("Scored by team", triggeredSensor);
-        io.sockets.emit('goal', triggeredSensor);
+      console.log("Scored by team" + triggeredSensor + " with speed of " + speed + " m/s");
+        var goal = {
+            team: triggeredSensor,
+            speed: speed
+        }
+        io.sockets.emit('goal', goal);
     }
   });
   

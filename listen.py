@@ -31,7 +31,7 @@ def listener() :
                 duration = round(end - start, 3)
                 # Ball diameter is 35mm
                 speed = round(0.035 / duration, 3)
-                print("Team : %s : %s m/s" % (sensor, speed)) 
+                print("%s : %s " % (sensor, speed)) 
 
 if __name__ =='__main__' :
     listener = listener()

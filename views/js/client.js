@@ -15,8 +15,8 @@ function FoosBallController($scope) {
         if(data) {
             $scope.$apply(function() {
                 $scope.redScore = $scope.redScore + 1;
-                $scope.data = data;
-                console.log("Score received: ", data);
+                $scope.redSpeed = data.speed;
+                console.log("Team " + data.team + " scores with a speed of " + data.speed + "m/s");
             })
         } else {
             console.log("There is a problem:", data);
