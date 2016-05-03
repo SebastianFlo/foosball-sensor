@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/SebastianFlo/foosball-sensor#readme",
   "dependencies": {
+    "debounce": "^1.0.0",
     "express": "^4.13.4",
     "socket.io": "^1.4.5"
   }

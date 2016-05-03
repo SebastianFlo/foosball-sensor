@@ -1,6 +1,7 @@
 var express = require("express");
 var app = express();
 var port = 3700;
+var debounce = require('debounce');
 var spawn = require('child_process').spawn,
     exec = require('child_process').exec,
     child;
@@ -21,24 +22,22 @@ io.sockets.on('connection', function(socket)
 {
     
     var startTime, prevTime;
-    child.stdout.on('data', function(data){
-        startTime = Math.floor(Date.now() / 1000);
+    
+    child.stdout.on('data', debounce(emitGoal, 500));
+    
+    function emitGoal(data){
         // set debounce
-        if (startTime - prevTime > 0.5) {
-            console.log('Start Time', startTime);
-            var result = data.toString();
-            var triggeredSensor = result.split(':')[0];
-            var speed = result.split(':')[1];
-            if (speed) {
-                var goal = {
-                    team: triggeredSensor,
-                    speed: speed
-                }
-                io.sockets.emit('goal', goal);
+        var result = data.toString();
+        var triggeredSensor = result.split(':')[0];
+        var speed = result.split(':')[1];
+        if (speed) {
+            var goal = {
+                team: triggeredSensor,
+                speed: speed
             }
+            io.sockets.emit('goal', goal);
         }
-        prevTime = startTime;
-    });
+    }
   
     child.on('close', function(code) {
       console.log('child process exited with code ' + code);
