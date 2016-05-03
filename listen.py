@@ -28,8 +28,10 @@ def listener() :
         if not previous_state and current_state:
             end = time.time()
             if start is not None:
-                duration = 1000 * round(end - start, 3)
-                print("Team : %s : %s ms" % (sensor, duration)) 
+                duration = end - start
+                # Ball diameter is 35mm
+                speed = round(0.035 / duration, 3)
+                print("Team : %s : %s m/s" % (sensor, speed)) 
 
 if __name__ =='__main__' :
     listener = listener()
