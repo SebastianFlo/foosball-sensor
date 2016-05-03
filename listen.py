@@ -14,6 +14,8 @@ def listener() :
 
     previous_state = False
     current_state = False
+    
+    start = None
 
     while True:
         time.sleep(0.01)
