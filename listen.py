@@ -22,7 +22,7 @@ def listener() :
         previous_state = current_state
         current_state = GPIO.input(sensor)
         # start timer
-        if not current_state and previous_state == current_state:
+        if not current_state and previous_state:
             start = time.time()
         # if sensor was triggered by not anymore
         if not previous_state and current_state:
