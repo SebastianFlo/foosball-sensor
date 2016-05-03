@@ -21,17 +21,21 @@ io.sockets.on('connection', function(socket)
 {
     
     child.stdout.on('data', function(data){
-    var result = data.toString();
-    var triggeredSensor = result.split(':')[0];
-    var speed = result.split(':')[1];
-    if (speed) {
-        var goal = {
-            team: triggeredSensor,
-            speed: speed
+        var result = data.toString();
+        var triggeredSensor = result.split(':')[0];
+        var speed = result.split(':')[1];
+        if (speed) {
+            var goal = {
+                team: triggeredSensor,
+                speed: speed
+            }
+            io.sockets.emit('goal', goal);
+            // setting a data send debounce
+            setTimeout(function(){
+                
+            }, 500);
         }
-        io.sockets.emit('goal', goal);
-    }
-  });
+    });
   
     child.on('close', function(code) {
       console.log('child process exited with code ' + code);

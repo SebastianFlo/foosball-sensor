@@ -13,13 +13,13 @@ function FoosBallController($scope, $timeout) {
  
     socket.on('goal', function (data) {
         if(data) {
+            $scope.$apply(function() {
                 if (data.speed) {
-                    $timeout(function(){
-                        $scope.redScore = $scope.redScore + 1;
-                        $scope.redSpeed = data.speed + ' m/s';
-                        console.log('Team ' + data.team + ' scores with a speed of ' + data.speed);
-                    }, 500);
+                    $scope.redScore = $scope.redScore + 1;
+                    $scope.redSpeed = data.speed + ' m/s';
+                    console.log('Team ' + data.team + ' scores with a speed of ' + data.speed);
                 }
+            })
         } else {
             console.log('There is a problem:', data);
         }
