@@ -32,8 +32,8 @@ def listener() :
     sensor = 4
 
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(sensor1.pin, GPIO.IN, GPIO.PUD_DOWN)
-    GPIO.setup(sensor2.pin, GPIO.IN, GPIO.PUD_DOWN)
+    GPIO.setup(sensor1['pin'], GPIO.IN, GPIO.PUD_DOWN)
+    GPIO.setup(sensor2['pin'], GPIO.IN, GPIO.PUD_DOWN)
 
     previous_state = False
     current_state = False
