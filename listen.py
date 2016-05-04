@@ -2,8 +2,33 @@ import RPi.GPIO as GPIO
 import sys, json, time
 from decimal import *
 
-print("Starting Sensor")
+print("Starting Sensors")
  
+# sensors
+sensor1 = {
+    'id' : 1,
+    'sensor' : 4
+}
+
+sensor2 = {
+    'id' : 2,
+    'sensor' : 14
+}
+
+sensorList = [
+    sensor1,
+    sensor2
+]
+
+def findTeam(sensorList, triggeredSensor):
+    for each in sensorList:
+        if each['sensor'] != triggeredSensor:
+            continue
+        return each
+
+
+# correct_value = something(vs, last_name)
+
 
 def listener() :
 
@@ -35,3 +60,4 @@ def listener() :
 
 if __name__ =='__main__' :
     listener = listener()
+
