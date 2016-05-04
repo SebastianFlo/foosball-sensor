@@ -22,7 +22,7 @@ sensorList = [
 
 def findTeam(sensorList, triggeredPin):
     for each in sensorList:
-        if each.pin != triggeredPin:
+        if each['pin'] != triggeredPin:
             continue
         return each.id
 
@@ -45,9 +45,9 @@ def listener() :
     while True:
         time.sleep(0.01)
         previous_state1 = current_state1
-        current_state1 = GPIO.input(sensor1.pin)
+        current_state1 = GPIO.input(sensor1['pin'])
         previous_state2 = current_state1
-        current_state2 = GPIO.input(sensor2.pin)
+        current_state2 = GPIO.input(sensor2['pin'])
         # start timer
         if (not current_state1 and previous_state1) or (not current_state2 and previous_state2):
             start = time.time()
@@ -59,9 +59,9 @@ def listener() :
                 # Ball diameter is 35mm
                 speed = round(0.035 / duration, 3)
                 if current_state1:
-                    pin = sensor1.pin
+                    pin = sensor1['pin']
                 else:
-                    pin = sensor2.pin
+                    pin = sensor2['pin']
                 printData = findTeam(sensorList, pin);
                 print("%s : %s " % (sensor, speed)) 
 
