@@ -35,8 +35,10 @@ def listener() :
     GPIO.setup(sensor1['pin'], GPIO.IN, GPIO.PUD_DOWN)
     GPIO.setup(sensor2['pin'], GPIO.IN, GPIO.PUD_DOWN)
 
-    previous_state = False
-    current_state = False
+    previous_state1 = False
+    current_state1 = False
+    previous_state2 = False
+    current_state2 = False
     
     start = None
 
