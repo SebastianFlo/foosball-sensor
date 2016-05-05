@@ -5,33 +5,53 @@
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
   <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
   <script src="/socket.io/socket.io.js"></script>
 </head>
 <body ng-app="app" ng-cloak>
     
-    <md-content ng-controller="FoosBallController" class="md-padding" >
-            <div layout="column" layout-gt-xs="row" >
-                <md-card flex style="background-color:#E8483C; color:white">
-                    <h2>Red Team</h2>
+    <md-content ng-controller="FoosBallController" class="md-padding">
+            <div ng-show="!showWinner" layout="column" layout-gt-xs="row" >
+                <md-card flex="10" style="background-color:#E8483C; color:white" layout="column" layout-align="center center">
+                    <md-button class="fa fa-arrow-circle-up fa-4x" ng-click="increaseScore(teams[0])"></md-button>
+                    <br>
+                    <br>
+                    <md-button class="fa fa-arrow-circle-down fa-4x" ng-click="decreaseScore(teams[0])"></md-button>
+                </md-card>  
+                <md-card flex="40" style="background-color:#E8483C; color:white">
                     <md-card-content>
-                        <p style="font-size: 30em; text-align: center;" ng-bind="redScore"></p>
+                        <p style="font-size: 20em; text-align: center;" ng-bind="teams[0].score"></p>
                     </md-card-content>
                 </md-card>
-                <md-card flex >
-                    <h2>White Team</h2>
+                <md-card flex="40">
                     <md-card-content>
-                        <p style="font-size: 30em; text-align: center;" ng-bind="whiteScore"></p>
+                        <p style="font-size: 20em; text-align: center;" ng-bind="teams[1].score"></p>
+                    </md-card-content>
+                </md-card>
+                <md-card flex="10" layout="column" layout-align="center center">
+                    <md-button class="fa fa-arrow-circle-up fa-4x" ng-click="increaseScore(teams[1])"></md-button>
+                    <br>
+                    <br>
+                    <md-button class="fa fa-arrow-circle-down fa-4x" ng-click="decreaseScore(teams[0])"></md-button>
+                </md-card> 
+            </div>
+            
+            <div ng-show="showWinner" layout="column" layout-gt-xs="row">
+                <md-card flex style="background-color:#009DFF; color:white" layout-align="center center" layout="column">
+                    <h2>Winner</h2>
+                    <md-card-content style="font-size: 10em; text-align: center;">
+                        <p>{{ winner }} team wins!</p>
+                        <md-button class="md-raised" ng-click="restart()" style="width:200px; height:100px; font-size:0.2em;"> Restart </md-button>
                     </md-card-content>
                 </md-card>
             </div>
     </md-content>
-
-    <md-content ng-controller="FoosBallController" class="md-padding" >
+    
+    <md-content ng-show="!showWinner" ng-controller="FoosBallController" class="md-padding" >
             <div layout="column" layout-gt-xs="row" >
                 <md-card flex style="background-color:#009DFF; color:white">
-                    <h2>Speed</h2>
                     <md-card-content>
-                        <p style="font-size: 10em; text-align: center;" ng-bind="redSpeed"></p>
+                        <p style="font-size: 10em; text-align: center;" ng-bind="speed"></p>
                     </md-card-content>
                 </md-card>
             </div>
