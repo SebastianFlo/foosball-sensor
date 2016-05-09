@@ -21,8 +21,8 @@ console.log("Listening on port " + port);
 child1 = spawn('python', ['-u', 'listen-debug1.py']);
 child2 = spawn('python', ['-u', 'listen-debug2.py']);
 
-child1.stdout.on('data', debugData);
-child2.stdout.on('data', debugData);
+child1.stdout.on('data', emitGoal);
+child2.stdout.on('data', emitGoal);
 
 io.sockets.on('connection', function(socket)
 {
