@@ -19,41 +19,32 @@ console.log("Listening on port " + port);
 child1 = spawn('python', ['-u', 'listen1.py']);
 child2 = spawn('python', ['-u', 'listen2.py']);
 
-// child1 = spawn('python', ['-u', 'listen-debug1.py']);
-// child2 = spawn('python', ['-u', 'listen-debug2.py']);
+child1.stdout.on('data', emitGoal);
+child2.stdout.on('data', emitGoal);
 
-io.sockets.on('connection', function(socket)
-{
-    
-    var startTime, prevTime;
-    
-    child1.stdout.on('data', emitGoal);
-    child2.stdout.on('data', emitGoal);
-    
-    function emitGoal(data){
-        // set debounce
-        var result = data.toString();
-        var id = result.split(':')[0];
-        var speed = result.split(':')[1];
-        if (speed) {
-            var goal = {
-                team: id,
-                speed: speed
-            }
-            console.log('Team ' + goal.team + ' scores');
-            io.sockets.emit('goal', goal);
+function emitGoal(data){
+    // set debounce
+    var result = data.toString();
+    var id = result.split(':')[0];
+    var speed = result.split(':')[1];
+    if (speed) {
+        var goal = {
+            team: id,
+            speed: speed
         }
+        console.log('Team ' + goal.team + ' scores');
+        io.sockets.emit('goal', goal);
     }
-  
-    child1.on('close', function(code) {
-      console.log('child 1 process exited with code ' + code);
-    });
+}
 
-    child2.on('close', function(code) {
-      console.log('child 2 process exited with code ' + code);
-    });
+child1.on('close', function(code) {
+    console.log('child 1 process exited with code ' + code);
+});
+
+child2.on('close', function(code) {
+    console.log('child 2 process exited with code ' + code);
+});
   
-}); // end on connection
 
 
 
