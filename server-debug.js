@@ -29,9 +29,10 @@ io.sockets.on('connection', function(socket)
     child2.stdout.on('data', debugData);
     
     function debugData(data) {
-        var result = data.toString();
-        var id = result.split(':')[0];
-        console.log(id);
+        console.log(data.toString());
+        // var result = data.toString();
+        // var id = result.split(':')[0];
+        // console.log(id);
     }
     
     function emitGoal(data){
@@ -58,7 +59,4 @@ io.sockets.on('connection', function(socket)
     });
   
 }); // end on connection
-
-
-
 
