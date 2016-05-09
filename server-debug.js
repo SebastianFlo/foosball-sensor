@@ -1,9 +1,31 @@
+var express = require("express");
+var app = express();
+var port = 3700;
+var debounce = require('debounce');
 var spawn = require('child_process').spawn,
     exec = require('child_process').exec,
     child;
 
-child1 = spawn('python', ['-u', 'listen1.py']);
-child2 = spawn('python', ['-u', 'listen2.py']);
+app.use(express.static(__dirname + '/views'));  
+
+app.get('/', function(req, res,next) {  
+    res.sendFile(__dirname + '/views/index.html');  
+});
+
+var io = require('socket.io').listen(app.listen(port));
+
+console.log("Listening on port " + port);
+
+// child1 = spawn('python', ['-u', 'listen1.py']);
+// child2 = spawn('python', ['-u', 'listen2.py']);
+
+child1 = spawn('python', ['-u', 'listen-debug1.py']);
+child2 = spawn('python', ['-u', 'listen-debug2.py']);
+
+io.sockets.on('connection', function(socket)
+{
+    
+    var startTime, prevTime;
     
     child1.stdout.on('data', emitGoal);
     child2.stdout.on('data', emitGoal);
@@ -19,6 +41,7 @@ child2 = spawn('python', ['-u', 'listen2.py']);
                 speed: speed
             }
             console.log('Team ' + goal.team + ' scores');
+            io.sockets.emit('goal', goal);
         }
     }
   
@@ -29,6 +52,8 @@ child2 = spawn('python', ['-u', 'listen2.py']);
     child2.on('close', function(code) {
       console.log('child 2 process exited with code ' + code);
     });
+  
+}); // end on connection
 
 
 
