@@ -16,14 +16,14 @@ var io = require('socket.io').listen(app.listen(port));
 
 console.log("Listening on port " + port);
 
-// child1 = spawn('python', ['-u', 'listen1.py']);
-// child2 = spawn('python', ['-u', 'listen2.py']);
+child1 = spawn('python', ['-u', 'listen1.py']);
+child2 = spawn('python', ['-u', 'listen2.py']);
 
-child1 = spawn('python', ['-u', 'listen-debug1.py']);
-child2 = spawn('python', ['-u', 'listen-debug2.py']);
+// child1 = spawn('python', ['-u', 'listen-debug1.py']);
+// child2 = spawn('python', ['-u', 'listen-debug2.py']);
 
-// io.sockets.on('connection', function(socket)
-// {
+io.sockets.on('connection', function(socket)
+{
     
     var startTime, prevTime;
     
@@ -53,7 +53,7 @@ child2 = spawn('python', ['-u', 'listen-debug2.py']);
       console.log('child 2 process exited with code ' + code);
     });
   
-// }); // end on connection
+}); // end on connection
 
 
 
