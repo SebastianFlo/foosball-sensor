@@ -25,10 +25,14 @@ child2 = spawn('python', ['-u', 'listen-debug2.py']);
 io.sockets.on('connection', function(socket)
 {
     
-    var startTime, prevTime;
+    child1.stdout.on('data', debugData);
+    child2.stdout.on('data', debugData);
     
-    child1.stdout.on('data', emitGoal);
-    child2.stdout.on('data', emitGoal);
+    function debugData(data) {
+        var result = data.toString();
+        var id = result.split(':')[0];
+        console.log(id);
+    }
     
     function emitGoal(data){
         // set debounce
