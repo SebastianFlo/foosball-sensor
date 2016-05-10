@@ -10,6 +10,14 @@ angular.module('app', ['ngMaterial'])
 function FoosBallController($scope, $timeout) {
     
     var socket = io.connect();
+    
+    $scope.$watch('showWinner', function(showWinner) {
+        if (showWinner && $scope.kingMode) {
+            $timeout(function (){
+                showWinner = false;
+            }, 1000);
+        }
+    })
  
     socket.on('goal', function (data) {
         if(data) {
