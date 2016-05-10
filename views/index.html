@@ -36,7 +36,7 @@
                 </md-card> 
             </div>
             
-            <div ng-show="showWinner" layout="column" layout-gt-xs="row">
+            <div ng-show="showWinner" layout="column">
                 <md-card flex class="{{ winner | lowercase }}-team" layout-align="center center" layout="column">
                     <h2>Winner</h2>
                     <md-card-content style="font-size: 10em; text-align: center;">
@@ -45,9 +45,18 @@
                     </md-card-content>
                 </md-card>
             </div>
+            
+            <div layout="column" layout-gt-xs="row" >
+                <md-switch ng-model="kingMode" aria-label="King Mode">
+                    King Mode: {{ kingMode }}
+                </md-switch>
+            </div>
+            
+            
+    
     </md-content>
     
-    <md-content ng-show="!showWinner" ng-controller="FoosBallController" class="md-padding" >
+    <!--<md-content ng-show="!showWinner" ng-controller="FoosBallController" class="md-padding" >
             <div layout="column" layout-gt-xs="row" >
                 <md-card flex style="background-color:#009DFF; color:white">
                     <md-card-content>
@@ -55,7 +64,7 @@
                     </md-card-content>
                 </md-card>
             </div>
-    </md-content>
+    </md-content>-->
 
   <!-- Angular Material Library -->
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>

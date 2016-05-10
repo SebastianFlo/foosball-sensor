@@ -67,6 +67,8 @@ function FoosBallController($scope, $timeout) {
         score: 0 
     }];
     
+    $scope.kingMode = false;
+    
     $scope.restart = restart;
     $scope.increaseScore = increaseScore;
     $scope.decreaseScore = decreaseScore;
