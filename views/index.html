@@ -12,13 +12,13 @@
     
     <md-content ng-controller="FoosBallController" class="md-padding">
             <div ng-show="!showWinner" layout="column" layout-gt-xs="row" >
-                <md-card flex="10" style="background-color:#E8483C; color:white" layout="column" layout-align="center center">
+                <md-card flex="10" class="red-team" layout="column" layout-align="center center">
                     <md-button class="fa fa-arrow-circle-up fa-4x" ng-click="increaseScore(teams[0])"></md-button>
                     <br>
                     <br>
                     <md-button class="fa fa-arrow-circle-down fa-4x" ng-click="decreaseScore(teams[0])"></md-button>
                 </md-card>  
-                <md-card flex="40" style="background-color:#E8483C; color:white">
+                <md-card flex="40" class="red-team">
                     <md-card-content>
                         <p style="font-size: 20em; text-align: center;" ng-bind="teams[0].score"></p>
                     </md-card-content>
@@ -37,7 +37,7 @@
             </div>
             
             <div ng-show="showWinner" layout="column" layout-gt-xs="row">
-                <md-card flex style="background-color:#009DFF; color:white" layout-align="center center" layout="column">
+                <md-card flex class="{{ winner | lowercase }}-team" layout-align="center center" layout="column">
                     <h2>Winner</h2>
                     <md-card-content style="font-size: 10em; text-align: center;">
                         <p>{{ winner }} team wins!</p>

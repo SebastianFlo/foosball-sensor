@@ -38,3 +38,8 @@ p.warn {
     box-sizing:border-box;  
     background-color: rgba(204, 2, 5, 0.31);
 }
+
+.red-team {
+  background-color:#E8483C; 
+  color:white
+}
