@@ -47,12 +47,11 @@
             </div>
             
             <div layout="column" layout-gt-xs="row" >
-                <md-switch ng-model="classicMode" ng-click="kingMode = false" aria-label="King Mode">
-                    Classic
-                </md-switch>
-                <md-switch ng-model="kingMode" aria-label="King Mode">
-                    King of The Hill
-                </md-switch>
+                Game mode:
+                <md-radio-group ng-model="kingMode">
+                    <md-radio-button value="false" class="md-primary">Classic</md-radio-button>
+                    <md-radio-button value="true"> King of the Hill </md-radio-button>
+                </md-radio-group>
             </div>
             
             

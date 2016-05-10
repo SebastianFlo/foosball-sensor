@@ -14,7 +14,7 @@ function FoosBallController($scope, $timeout) {
     $scope.$watch('showWinner', function(showWinner) {
         if (showWinner && $scope.kingMode) {
             $timeout(function (){
-                $scope.showWinner = false;
+                restart();
             }, 1000);
         }
     })
