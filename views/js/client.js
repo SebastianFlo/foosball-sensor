@@ -16,7 +16,9 @@ function FoosBallController($scope, $timeout) {
             $scope.$apply(function() {
                 if (data.speed) {
                     $scope.teams[data.team -1].score++;
-                    if ($scope.teams[data.team -1].score === 10) {
+                    if ($scope.teams[data.team -1].score === 10 && !$scope.kingMode) {
+                        $timeout(flashWinner(data.team -1), 1000);
+                    } else {
                         $timeout(flashWinner(data.team -1), 1000);
                     }
                     $scope.speed = data.speed + ' m/s';
@@ -41,7 +43,9 @@ function FoosBallController($scope, $timeout) {
     
     function increaseScore(team) {
         team.score++ 
-        if (team.score === 10) {
+        if (team.score === 10 && !$scope.kingMode) {
+            $timeout(flashWinner(team.id), 500);
+        } else {
             $timeout(flashWinner(team.id), 500);
         }
     }
