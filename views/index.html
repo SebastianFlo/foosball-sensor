@@ -49,8 +49,16 @@
                 <p>
                     Game mode:
                 </p>
-                <md-button class="fa fa-futbol-o" ng-class="{ 'md-primary' : !kingMode }" ng-click="kingMode = false"></md-button>
-                <md-button class="fa fa-flag-o" ng-class="{ 'md-primary' : kingMode }" ng-click="kingMode = true"></md-button>
+                <md-button class="fa fa-futbol-o" ng-class="{ 'md-primary' : !kingMode }" ng-click="kingMode = false">
+                    <md-tooltip md-direction="top">
+                        Classic
+                    </md-tooltip>
+                </md-button>
+                <md-button class="fa fa-flag-o" ng-class="{ 'md-primary' : kingMode }" ng-click="kingMode = true">
+                    <md-tooltip md-direction="top">
+                        King of The Hill
+                    </md-tooltip>
+                </md-button>
             </div>
             
             
