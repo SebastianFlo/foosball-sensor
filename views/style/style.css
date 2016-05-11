@@ -1,15 +1,15 @@
 body {
   width:100%;
+  height: 100%;
   padding:0;
   margin:0;
   box-sizing: border-box;
-}
-md-content.md-default-theme, md-content {
-  background-color: rgba(163, 160, 160, 0.45);
+  background-color: rgb(222, 222, 222);
 }
 
-.carddemoBasicUsage .card-media {
-  background-color: #999999; }
+md-content.md-default-theme, md-content {
+  background-color: rgb(222, 222, 222);
+}
 
 md-card > h2 {
   padding-left : 15px;
@@ -42,4 +42,14 @@ p.warn {
 .red-team {
   background-color:#E8483C; 
   color:white
+}
+
+.logo {
+  width: 43px;
+  height: 100%;
+  max-width: none;
+  background: url(/img/46f7b586.falcon-wing-white.svg) no-repeat center 20px;
+  background-size: 100%;
+  display: inline-block;
+  margin-left: 20px;
 }
