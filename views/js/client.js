@@ -53,7 +53,7 @@ function FoosBallController($scope, $timeout) {
         team.score++ 
         if (team.score === 10 && !$scope.kingMode) {
             $timeout(flashWinner(team.id), 500);
-        } else if ($scope.kingMode) {
+        } else if ($scope.kingMode && team.score === 3) {
             $timeout(flashWinner(team.id), 500);
         }
     }
