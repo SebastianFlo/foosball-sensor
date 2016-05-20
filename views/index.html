@@ -42,7 +42,6 @@
                 
                 <div ng-show="showWinner" layout="column">
                     <md-card flex class="{{ winner | lowercase }}-team" layout-align="center center" layout="column" ng-click="restart()">
-                        <h2>Winner</h2>
                         <md-card-content style="font-size: 10em; text-align: center;">
                             <p>{{ winner }} team wins!</p>
                         </md-card-content>
@@ -50,6 +49,9 @@
                 </div>
                 
                 <div layout="column" layout-gt-xs="row" >
+                    <h3>
+                        Game until 3. Winning team plays with next team. 
+                    </h3>
                     <p>
                         Game mode:
                     </p>
