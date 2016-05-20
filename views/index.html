@@ -54,19 +54,22 @@
                 <md-card flex layout-align="center center">
                     <h2>Play until 3. Winning team plays with the next team.</h2>
                 </md-card>
-                <p>
-                    Game mode:
-                </p>
-                <md-button class="fa fa-futbol-o" ng-class="{ 'md-primary' : !kingMode }" ng-click="kingMode = false">
-                    <md-tooltip md-direction="top">
-                        Classic
-                    </md-tooltip>
-                </md-button>
-                <md-button class="fa fa-flag-o" ng-class="{ 'md-primary' : kingMode }" ng-click="kingMode = true">
-                    <md-tooltip md-direction="top">
-                        King of The Hill
-                    </md-tooltip>
-                </md-button>
+                
+                <md-card flex layout-align="center center">
+                    <p>
+                        Game mode:
+                    </p>
+                    <md-button class="fa fa-futbol-o" ng-class="{ 'md-primary' : !kingMode }" ng-click="kingMode = false">
+                        <md-tooltip md-direction="top">
+                            Classic
+                        </md-tooltip>
+                    </md-button>
+                    <md-button class="fa fa-flag-o" ng-class="{ 'md-primary' : kingMode }" ng-click="kingMode = true">
+                        <md-tooltip md-direction="top">
+                            King of The Hill
+                        </md-tooltip>
+                    </md-button>
+                </md-card>
             </div>
         </md-content>
     </div>
