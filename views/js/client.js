@@ -26,7 +26,7 @@ function FoosBallController($scope, $timeout) {
                     $scope.teams[data.team -1].score++;
                     if ($scope.teams[data.team -1].score === 10 && !$scope.kingMode) {
                         $timeout(flashWinner(data.team -1), 1000);
-                    } else if ($scope.kingMode) {
+                    } else if ($scope.kingMode && $scope.teams[data.team -1].score === 3) {
                         $timeout(flashWinner(data.team -1), 1000);
                     }
                     $scope.speed = data.speed + ' m/s';
